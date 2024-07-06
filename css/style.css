@@ -1,0 +1,93 @@
+:root {
+    --white: #f1f1f1;
+    --black: #1f1f1f;
+    --smoky-black: #0f0a0a;
+    --isabelline: #f5efed;
+    --blue-munsell: #2292a4;
+    --citrine: #bdbf09;
+    --cocoa-brown: #d96c06;
+    --gradient: linear-gradient(40deg, var(--blue-munsell), var(--cocoa-brown));
+    --bow: 6px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--black);
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: var(--gradient);
+    font-family: Tahoma, Arial;
+}
+
+.calculator {
+    width: 22rem;
+    background-color: var(--citrine);
+    padding: 8px;
+    border-radius: var(--bow);
+
+    #display {
+        width: 100%;
+        height: 5rem;
+        background-color: var(--smoky-black);
+        padding: 5px;
+        color: var(--white);
+        font-size: 4rem;
+        border-radius: var(--bow);
+        border: none;
+    }
+
+    .keys-and-more {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+        margin-top: 5px;
+
+        & button {
+            height: 4rem;
+            font-size: 2rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: .3s;
+        }
+        & button:last-of-type {
+            grid-column: span 2;
+            background-image: linear-gradient(45deg, var(--cocoa-brown), var(--blue-munsell));
+        }
+        & button:last-of-type:hover {
+            background-image: linear-gradient(45deg, rgb(217, 108, 6, .70), rgba(34, 147, 164, .70));
+        }
+        .number {
+            background-color: var(--blue-munsell);
+        }
+        .number:hover {
+            background-color: rgba(34, 147, 164, .70);
+        }
+        .operator {
+            background-color: var(--cocoa-brown);
+        }
+        .operator:hover {
+            background-color: rgb(217, 108, 6, .70);
+        }
+        .number:active,
+        .operator:active,
+        & button:last-of-type:active {
+            background-color: var(--white);
+        }
+
+        .my-info {
+            grid-column: span 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+}
